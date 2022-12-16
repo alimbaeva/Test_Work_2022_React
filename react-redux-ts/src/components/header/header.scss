@@ -1,0 +1,14 @@
+header {
+    height: 36px;
+    
+    .menu {
+        height: 100%;
+        display: flex;
+        align-items: center;
+
+        a {
+            margin-right: 20px;
+            color: #264576;
+        }
+    }
+}
