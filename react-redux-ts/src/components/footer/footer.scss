@@ -1,0 +1,35 @@
+.footer {
+    display: grid;
+    grid-template-columns: 500px 315px 1fr;
+    font-family: 'Heuristica';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+    text-transform: uppercase;
+    color: #264576;
+
+    &__title {
+        display: flex;
+        align-items: center;
+
+        img {
+            width: 150px;
+            height: 66px;
+            margin-right: 20px;
+        }
+
+        p {
+            width: 300px;
+        }
+    }
+
+    &__contact {
+        p {
+               margin: 0;
+           }
+        div {
+            margin-top: 16px;
+        }
+    }
+}
