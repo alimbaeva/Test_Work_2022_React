@@ -1,5 +1,6 @@
 import React, { FC } from 'react';
+import { Title } from '../../components/statistics/Title';
 
 export const Statistics: FC = () => {
-  return <div>Statistics</div>;
+  return <Title />;
 };
