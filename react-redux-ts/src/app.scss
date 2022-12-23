@@ -1,3 +1,40 @@
+$font-stack: 'Heuristica', sans-serif;
+$font-text: 'Roboto', sans-serif;
+$body-collor:  rgba(235, 243, 255, 1);
+$block-collor:  #FFFFFF;
+$title-text-collor:  #264576;
+$subtitle-text-collor:  #8791AA;
+
+%title-text {
+    font-family: $font-stack;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 24px;
+    text-transform: uppercase;
+    color: $title-text-collor;
+}
+
+%subtitle-text {
+    font-family: $font-text;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+    color: $subtitle-text-collor;
+}
+
+*,
+*::after,
+*::before {
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: $body-collor;
+}
+
 .container {
     width: 1100px;
     margin: 0 auto;

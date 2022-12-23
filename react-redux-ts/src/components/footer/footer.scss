@@ -1,3 +1,5 @@
+@import '../../app.scss';
+
 .footer {
     display: grid;
     grid-template-columns: 500px 315px 1fr;
@@ -7,7 +9,7 @@
     font-size: 16px;
     line-height: 19px;
     text-transform: uppercase;
-    color: #264576;
+    color: $title-text-collor;
 
     &__title {
         display: flex;

@@ -1,5 +1,9 @@
+@import '../../app.scss';
+
 header {
     height: 36px;
+    margin-bottom: 40px;
+    background-color: $block-collor;
     
     .menu {
         height: 100%;
@@ -8,7 +12,7 @@ header {
 
         a {
             margin-right: 20px;
-            color: #264576;
+            color: $title-text-collor;
         }
     }
 }
