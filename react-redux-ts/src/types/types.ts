@@ -5,3 +5,13 @@ export interface IOptions {
     nation: string[];
   };
 }
+
+export interface ICard {
+  id: string;
+  title: string;
+  region: string;
+}
+
+export interface IPropsCard {
+  props: ICard;
+}
