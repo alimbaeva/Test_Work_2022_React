@@ -1,0 +1,17 @@
+@import '../../app.scss';
+
+.count {
+    height: 96px;
+    display: flex;
+    align-items: center;
+
+    p {
+        margin-left: .5rem;
+        font-family: 'Roboto';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 16px;
+        color: rgba(25, 25, 25, 0.5);
+    }
+}
