@@ -1,6 +1,4 @@
 import { FC, useState } from 'react';
-import arrow_left from '../../assets/arrow_left.svg';
-import arrow_right from '../../assets/arrow_right.svg';
 
 interface Inum {
   allPageNumbers: number;
@@ -27,6 +25,20 @@ export const PaginationBtn: FC<Inum> = ({ allPageNumbers, paginate, curentPage }
     btnChilde: ChildNode | null | undefined
   ) => {
     paginate(num, e, btnChilde);
+    if (num + 1 === allPageNumbers) {
+      setDisBtnRight(true);
+      setDisBtnLeft(false);
+    }
+    if (num + 1 === 1) {
+      setDisBtnRight(false);
+      setDisBtnLeft(true);
+    }
+    if (num + 1 !== allPageNumbers) {
+      setDisBtnRight(false);
+    }
+    if (num + 1 !== 1) {
+      setDisBtnLeft(false);
+    }
   };
 
   const handleClickRight = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
