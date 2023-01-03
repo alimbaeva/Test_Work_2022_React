@@ -44,7 +44,6 @@ export const PaginationBtn: FC<Inum> = ({ allPageNumbers, paginate, curentPage }
   const handleClickRight = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
     const elem = e.target as HTMLButtonElement;
     let previousSiblingEl: ChildNode | null | undefined = elem.previousSibling;
-    console.log(previousSiblingEl);
     if (previousSiblingEl === null) {
       previousSiblingEl = elem.parentNode?.previousSibling
         ? elem.parentNode?.previousSibling
@@ -67,9 +66,7 @@ export const PaginationBtn: FC<Inum> = ({ allPageNumbers, paginate, curentPage }
   const handleClickLeft = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
     const elem = e.target as HTMLButtonElement;
     let nextSiblingEl: ChildNode | null | undefined = elem.nextSibling;
-    console.log(nextSiblingEl);
     if (nextSiblingEl === null) {
-      console.log(elem.parentNode?.nextSibling);
       nextSiblingEl = elem.parentNode?.nextSibling
         ? elem.parentNode?.nextSibling
         : elem.parentNode?.parentNode?.nextSibling;
@@ -92,7 +89,7 @@ export const PaginationBtn: FC<Inum> = ({ allPageNumbers, paginate, curentPage }
   return (
     <div className="buttons">
       <button className="arrow arrow-left" onClick={(e) => handleClickLeft(e)}>
-        {disBtnLeft && <button disabled={true} className="disabled-btn"></button>}
+        {disBtnLeft && <input type="button" disabled={true} className="disabled-btn"></input>}
         <svg width="7" height="11" viewBox="0 0 7 11" xmlns="http://www.w3.org/2000/svg">
           <path d="M5.55505 0.727097L6.0267 1.07494L6.0267 10.5029L5.57189 10.8339L0.973282 6.09467L0.973282 5.39814L5.55505 0.727097Z" />
         </svg>
@@ -115,7 +112,7 @@ export const PaginationBtn: FC<Inum> = ({ allPageNumbers, paginate, curentPage }
         })}
       </div>
       <button className="arrow arrow-right" onClick={(e) => handleClickRight(e)}>
-        {disBtnRight && <button disabled={true} className="disabled-btn"></button>}
+        {disBtnRight && <input type="button" disabled={true} className="disabled-btn"></input>}
         <svg
           width="7"
           height="11"
