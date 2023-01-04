@@ -1,4 +1,5 @@
 import React, { FC } from 'react';
+import { cardData } from '../../data/cardData';
 import './count.scss';
 
 export const Count: FC = () => {
@@ -6,7 +7,7 @@ export const Count: FC = () => {
     <div className="container">
       <div className="count">
         <p>
-          Всего объектов: <span>34</span>
+          Всего объектов: <span>{cardData.length}</span>
         </p>
       </div>
     </div>

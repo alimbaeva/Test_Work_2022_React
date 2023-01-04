@@ -2,7 +2,11 @@ import React, { FC } from 'react';
 import { Filter } from './Filter';
 import './style/advancedSearch.scss';
 
-export const AdvancedSearch: FC = () => {
+interface IInpContextFn {
+  inpContextFn: (e: React.ChangeEvent<HTMLInputElement>) => void;
+}
+
+export const AdvancedSearch: FC<IInpContextFn> = ({ inpContextFn }: IInpContextFn) => {
   return (
     <div className="container">
       <div className="search">
@@ -12,7 +16,8 @@ export const AdvancedSearch: FC = () => {
             <p className="search-text">Расширенный поиск</p>
           </div>
           <label>
-            <input type="text" placeholder="Контекстный поиск" />
+            {/* <input ref={inpContextFn()} type="text" placeholder="Контекстный поиск" /> */}
+            <input onChange={(e) => inpContextFn(e)} type="text" placeholder="Контекстный поиск" />
           </label>
         </div>
         <Filter />

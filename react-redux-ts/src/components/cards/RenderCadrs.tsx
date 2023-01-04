@@ -1,13 +1,18 @@
-import React, { FC, useState } from 'react';
+import React, { FC, useEffect, useMemo, useState } from 'react';
 import { cardData } from '../../data/cardData';
 import { Card } from './Card';
 import { ICard } from '../../types/types';
 import { PaginationBtn } from '../paginationBtn/PaginationBtn';
 import './style/card.scss';
 
-export const RenderCadrs: FC = () => {
+interface IContext {
+  inpContext: string;
+}
+
+export const RenderCadrs: FC<IContext> = ({ inpContext }: IContext) => {
   const [curentPage, setCurentPage] = useState('1');
   const [cardsOnPage, setcardsOnPage] = useState(12);
+  const [noCard, setNoCard] = useState(false);
   const [cards, setCards] = useState<ICard[]>(cardData.slice(0, cardsOnPage));
   const allPageNumbers = Math.ceil(cardData.length / cardsOnPage);
 
@@ -16,6 +21,24 @@ export const RenderCadrs: FC = () => {
       return <Card key={el.id} props={el} />;
     });
   };
+
+  const searchText = () => {
+    if (inpContext.length > 0) {
+      const filterCards = cardData.filter((card) => card.title.includes(inpContext));
+      setCards(filterCards);
+      if (filterCards.length === 0) setNoCard(true);
+      if (filterCards.length !== 0) setNoCard(false);
+      console.log(filterCards);
+    }
+  };
+
+  useEffect(() => {
+    searchText();
+    if (inpContext.length === 0) {
+      setCards(cardData.slice(0, cardsOnPage));
+      setNoCard(false);
+    }
+  }, [inpContext]);
 
   const paginate = (
     pageNumber: number,
@@ -39,10 +62,12 @@ export const RenderCadrs: FC = () => {
     const end = start + cardsOnPage;
     setCurentPage(String(pageNumber + 1));
     setCards(cardData.slice(start, end));
+    setNoCard(false);
   };
 
   return (
     <div className="container">
+      {noCard && <h3>Извините по вашему запросу ничего не найдено.</h3>}
       <div className="cards-block">{renderCards()}</div>
       <div>
         <PaginationBtn
