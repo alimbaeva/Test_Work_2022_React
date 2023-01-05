@@ -6,17 +6,20 @@ import { Title } from '../../components/statistics/Title';
 
 export const Statistics: FC = () => {
   const [inpContext, setInpContext] = useState('');
+  const [regionSearch, setRegionSearch] = useState('');
 
   const inpContextFn = (e: React.ChangeEvent<HTMLInputElement>) => {
     setInpContext(e.target.value);
-    console.log(inpContext);
+  };
+  const regionSearchFn = (region: string) => {
+    setRegionSearch(region);
   };
   return (
     <>
       <Title />
-      <AdvancedSearch inpContextFn={inpContextFn} />
+      <AdvancedSearch inpContextFn={inpContextFn} regionSearchFn={regionSearchFn} />
       <Count />
-      <RenderCadrs inpContext={inpContext} />
+      <RenderCadrs inpContext={inpContext} regionSearch={regionSearch} />
     </>
   );
 };

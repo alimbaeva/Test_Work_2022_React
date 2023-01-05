@@ -4,9 +4,13 @@ import './style/advancedSearch.scss';
 
 interface IInpContextFn {
   inpContextFn: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  regionSearchFn: (region: string) => void;
 }
 
-export const AdvancedSearch: FC<IInpContextFn> = ({ inpContextFn }: IInpContextFn) => {
+export const AdvancedSearch: FC<IInpContextFn> = ({
+  inpContextFn,
+  regionSearchFn,
+}: IInpContextFn) => {
   return (
     <div className="container">
       <div className="search">
@@ -16,11 +20,10 @@ export const AdvancedSearch: FC<IInpContextFn> = ({ inpContextFn }: IInpContextF
             <p className="search-text">Расширенный поиск</p>
           </div>
           <label>
-            {/* <input ref={inpContextFn()} type="text" placeholder="Контекстный поиск" /> */}
             <input onChange={(e) => inpContextFn(e)} type="text" placeholder="Контекстный поиск" />
           </label>
         </div>
-        <Filter />
+        <Filter regionSearchFn={regionSearchFn} />
       </div>
     </div>
   );
